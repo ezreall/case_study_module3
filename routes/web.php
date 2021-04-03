@@ -17,6 +17,9 @@ use App\Http\Controllers\Admin\CommentController;
 use App\Http\Controllers\User\HomeController;
 use Illuminate\Support\Facades\Route;
 
+Route::get('',function (){
+    return view('login.login');
+});
 
 Route::prefix('admin')->group(function (){
     Route::prefix('/categories')->group(function (){
