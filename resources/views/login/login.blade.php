@@ -25,7 +25,9 @@
                         </div>
                         <p class="login-card-description">Sign into your account</p>
 {{--                        <form action="{{route('admin.checklogin')}}" role="form" method="POST">--}}
-{{--                            @csrf--}}
+{{--                    @csrf--}}
+                        <form action="" method="POST">
+                        {{ csrf_field() }}
                             <div class="form-group">
                                 <label for="email" class="sr-only">Email</label>
                                 <input type="email" name="email" id="email" class="form-control" placeholder="Email address">
@@ -35,6 +37,7 @@
                                 <input type="password" name="password" id="password" class="form-control" placeholder="***********">
                             </div>
                             <input name="login" id="login" class="btn btn-block login-btn mb-4" type="submit" value="Login">
+                        </form>
 {{--                        </form>--}}
                         <a href="#!" class="forgot-password-link">Forgot password?</a>
                         <p class="login-card-footer-text">Don't have an account?

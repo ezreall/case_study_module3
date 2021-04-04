@@ -17,11 +17,10 @@ use App\Http\Controllers\Admin\CommentController;
 use App\Http\Controllers\User\HomeController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('',function (){
-    return view('login.login');
-});
+route::get('/', 'AdminController@getLogin')->middleware('guest:admin');
+route::post('/', 'AdminController@postLogin')->middleware('guest:admin');
 
-Route::prefix('admin')->group(function (){
+Route::prefix('admin')->middleware('auth:admin')->group(function (){
     Route::prefix('/categories')->group(function (){
     Route::get('/',[CategoriesController::class,'index'])->name('categories');
     Route::get('/create',[CategoriesController::class,'create'])->name('create.categories');
@@ -46,3 +45,7 @@ Route:: prefix('user')->group(function () {
     Route::post('/comment/{id}', [CommentController::class, 'store'])->name('comment.store');
     Route::get('/one_category/{id}', [CategoriesController::class, 'category_articles'])->name('category_articles');
 });
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
