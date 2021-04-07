@@ -14,6 +14,5 @@ class CommentRepository
 
     function store($comments){
         $comments->save();
-//            dd($comments);
     }
 }

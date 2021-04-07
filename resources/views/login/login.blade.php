@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="https://cdn.materialdesignicons.com/4.8.95/css/materialdesignicons.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="{{asset('login/assets/css/login.css')}}">
+
 </head>
 <body>
 <main class="d-flex align-items-center min-vh-100 py-3 py-md-0">
@@ -38,49 +39,24 @@
                             </div>
                             <input name="login" id="login" class="btn btn-block login-btn mb-4" type="submit" value="Login">
                         </form>
+                        <div class="container">
+                            <div class="row">
+                                <div class="col-md-12 row-block">
+                                    <a href="{{ route('login.google') }}" class="btn btn-lg btn-primary btn-block">
+                                        <strong>Login With Google</strong>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
 {{--                        </form>--}}
                         <a href="#!" class="forgot-password-link">Forgot password?</a>
                         <p class="login-card-footer-text">Don't have an account?
-                            <a data-toggle="modal" type="button" data-target="#form"  class="text-reset">Register here</a></p>
+                            <a   href="{{route('create.register')}}" class="text-reset">Register here</a></p>
                         <nav class="login-card-footer-nav">
                             <a href="#!">Terms of use.</a>
                             <a href="#!">Privacy policy</a>
                             <div class="container">
-
-                            <div class="modal fade" id="form" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                                <div class="modal-dialog modal-dialog-centered" role="document">
-                                    <div class="modal-content">
-                                        <div class="modal-header border-bottom-0">
-                                            <h5 class="modal-title" id="exampleModalLabel">Create Account</h5>
-                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                <span aria-hidden="true">&times;</span>
-                                            </button>
-                                        </div>
-                                        <form>
-                                            <div class="modal-body">
-                                                <div class="form-group">
-                                                    <label for="email1">Email address</label>
-                                                    <input type="email" class="form-control" id="email1" aria-describedby="emailHelp" placeholder="Enter email">
-                                                    <small id="emailHelp" class="form-text text-muted">Your information is safe with us.</small>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label for="password1">Password</label>
-                                                    <input type="password" class="form-control" id="password1" placeholder="Password">
-                                                </div>
-                                                <div class="form-group">
-                                                    <label for="password1">Confirm Password</label>
-                                                    <input type="password" class="form-control" id="password2" placeholder="Confirm Password">
-                                                </div>
-                                            </div>
-                                            <div class="modal-footer border-top-0 d-flex justify-content-center">
-                                                <button type="submit" class="btn btn-success">Submit</button>
-                                            </div>
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
                         </nav>
-
                     </div>
                 </div>
             </div>

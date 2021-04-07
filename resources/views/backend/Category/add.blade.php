@@ -18,7 +18,7 @@
         <!-- /Breadcrumb -->
     </div>
 
-    <div class="col-sm-6">
+    <div class="col-sm-9">
         <div class="panel panel-default card-view">
             <div class="panel-heading">
                 <div class="pull-left">
@@ -38,7 +38,6 @@
                                     <label>Introduce</label>
                                     <textarea name="introduce" class="form-control " id="editor1"></textarea>
                                     <button type="submit" class="btn btn-default btn-anim"><i class="fa fa-shopping-cart"></i><span class="btn-text">add to cart</span></button>
-                                    <button class="btn btn-danger btn-anim"><i class="fa fa-trash-o"></i><span class="btn-text">delete</span></button>
                                 </div>
                             </div>
                         </form>

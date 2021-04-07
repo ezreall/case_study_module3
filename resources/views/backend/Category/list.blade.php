@@ -35,7 +35,7 @@
                                     <thead>
                                     <tr>
                                         <th rowspan="2">Name</th>
-
+                                        user statistics
                                     </tr>
                                     <tr>
                                         <th>Introduce</th>
@@ -50,13 +50,13 @@
 
                                         <tr>
                                             <td>{!! $category->name !!}</td>
-                                            <td>{!! $category->introduce !!}</td>
+                                            <td>{!!   substr($category['introduce'], 0, 120) !!} <a href="">...</a>  </td>
                                             <td style="text-align: center">
-                                                <a href="{{route('edit',['id'=>$category->id])}}" class="btn btn-default btn-anim">
+                                                <a href="{{route('edit.category',['id'=>$category->id])}}" class="btn btn-default btn-anim">
                                                     <i class="fa fa-pencil-square-o"></i>
                                                     <span class="btn-text">edit</span>
                                                 </a>
-                                                <a href="{{route('delete',$category->id)}}" class="btn btn-danger btn-anim"><i  class="fa fa-trash-o"></i>
+                                                <a href="{{route('delete.category',$category->id)}}" class="btn btn-danger btn-anim"><i  class="fa fa-trash-o"></i>
                                                     <span class="btn-text" >
                                                        delete
                                                     </span>

@@ -18,6 +18,5 @@ class CommentController extends Controller
     function store(Request $request)
     {
         $this->commentServices->store($request);
-
         return back();
     }}

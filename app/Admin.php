@@ -17,7 +17,7 @@ class Admin extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'email', 'password',
+        'email', 'password', 'name','google_id'
     ];
 
     /**
@@ -28,4 +28,9 @@ class Admin extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    function articles()
+    {
+        return $this->belongsTo(User::class, 'admin_id');
+    }
 }

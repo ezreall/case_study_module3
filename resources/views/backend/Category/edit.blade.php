@@ -17,8 +17,7 @@
         </div>
         <!-- /Breadcrumb -->
     </div>
-
-    <div class="col-sm-6">
+    <div class="col-sm-9">
         <div class="panel panel-default card-view">
             <div class="panel-heading">
                 <div class="pull-left">
@@ -34,9 +33,9 @@
                             <div class="form-group has-dark">
                                 <div class="col-md-12">
                                     <label>Name Category</label>
-                                    <input type="text" id="state-dark" name="name" class="form-control" placeholder="...">
+                                    <input type="text" id="state-dark" name="name" class="form-control" value="{{$categories->name}}" >
                                     <label>Introduce</label>
-                                    <textarea name="introduce" class="form-control " id="editor1"></textarea>
+                                    <textarea name="introduce" class="form-control " id="editor1">{!!$categories->introduce!!}</textarea>
                                     <button type="submit" class="btn btn-default btn-anim"><i class="fa fa-shopping-cart"></i><span class="btn-text">Update</span></button>
                                 </div>
                             </div>

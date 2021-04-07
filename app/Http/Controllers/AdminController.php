@@ -2,8 +2,13 @@
 
 namespace App\Http\Controllers;
 
+
+use Exception;
+use App\Admin;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+use Laravel\Socialite\Facades\Socialite;
 
 class AdminController extends Controller
 {
@@ -23,18 +28,50 @@ class AdminController extends Controller
         } else {
             $remember = false;
         }
-        //kiểm tra trường remember có được chọn hay không
-
         if (Auth::guard('admin')->attempt($arr)) {
 
-           return redirect()->route('create.categories');
-            //..code tùy chọn
-            //đăng nhập thành công thì hiển thị thông báo đăng nhập thành công
+            return redirect()->route('AllList');
         } else {
 
-            dd('tài khoản và mật khẩu chưa chính xác');
-            //...code tùy chọn
-            //đăng nhập thất bại hiển thị đăng nhập thất bại
+            dd($arr);
         }
     }
+
+    function Logout()
+    {
+        auth()->logout();
+        return route('admin');
+    }
+
+    public function redirectToGoogle()
+    {
+        return Socialite::driver('google')->redirect();
+    }
+
+    public function handleGoogleCallback()
+    {
+        try {
+            $user = Socialite::driver('google')->user();
+            $guard = Admin::where('google_id', $user->id)->first();
+
+        } catch (Exception $e)
+        {
+            return redirect('auth/google');
+        }
+        if ($guard) {
+            Auth::guard('admin')->login($guard);
+        } else {
+            $newUser = new Admin();
+            $newUser->name = $user->name;
+            $newUser->email = $user->email;
+            $newUser->password = Hash::make('password');
+            $newUser->email = $user->email;
+            $newUser->google_id = $user->id;
+            $newUser->save();
+            Auth::guard('admin')->login($newUser);
+        }
+        return redirect()->route('AllList');
+
+    }
 }
+

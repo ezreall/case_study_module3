@@ -8,25 +8,13 @@
             <a class="active" href="javascript:void(0);" data-toggle="collapse" data-target="#dashboard_dr"><div class="pull-left"><i class="zmdi zmdi-landscape mr-20"></i><span class="right-nav-text">Dashboard</span></div><div class="pull-right"><i class="zmdi zmdi-caret-down"></i></div><div class="clearfix"></div></a>
             <ul id="dashboard_dr" class="collapse collapse-level-1">
                 <li>
-                    <a class="active-page" href="index.html">Analytical</a>
+                    <a class="active-page" href="{{route('categories')}}">Categories</a>
                 </li>
                 <li>
-                    <a href="index2.html">Demographic</a>
+                    <a href="{{route('articles')}}">Article</a>
                 </li>
                 <li>
                     <a href="index3.html">Project</a>
-                </li>
-                <li>
-                    <a href="index4.html">Hospital</a>
-                </li>
-                <li>
-                    <a href="index5.html">HRM</a>
-                </li>
-                <li>
-                    <a href="index6.html">Real Estate</a>
-                </li>
-                <li>
-                    <a href="profile.html">profile</a>
                 </li>
             </ul>
         </li>
@@ -40,13 +28,13 @@
             </ul>
         </li>
         <li>
-            <a href="javascript:void(0);" data-toggle="collapse" data-target="#app_dr"><div class="pull-left"><i class="zmdi zmdi-apps mr-20"></i><span class="right-nav-text">Apps </span></div><div class="pull-right"><i class="zmdi zmdi-caret-down"></i></div><div class="clearfix"></div></a>
+            <a href="javascript:void(0);" data-toggle="collapse" data-target="#app_dr"><div class="pull-left"><i class="zmdi zmdi-apps mr-20"></i><span class="right-nav-text">Add </span></div><div class="pull-right"><i class="zmdi zmdi-caret-down"></i></div><div class="clearfix"></div></a>
             <ul id="app_dr" class="collapse collapse-level-1">
                 <li>
-                    <a href="chats.html">chats</a>
+                    <a href="{{route('create.categories')}}">Category</a>
                 </li>
                 <li>
-                    <a href="calendar.html">calendar</a>
+                    <a href="{{route('create.articles')}}">Articles</a>
                 </li>
                 <li>
                     <a href="weather.html">weather</a>

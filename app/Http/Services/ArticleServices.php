@@ -3,9 +3,10 @@
 
 namespace App\Http\Services;
 
-
+use App\Admin;
 use App\Article;
 use App\Http\Repository\ArticleRepository;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
 
 class ArticleServices extends BaseServices
@@ -21,7 +22,9 @@ class ArticleServices extends BaseServices
     {
         return $this->articlesRepo->findById($id);
     }
-    function getAll(){
+
+    function getAll()
+    {
         return $this->articlesRepo->getAll();
     }
 
@@ -29,10 +32,8 @@ class ArticleServices extends BaseServices
     {
         $articles = new Article();
         $articles->fill($request->all());
-//        dd($request->content);
         $path = $this->updateLoadFile($request, 'image', 'backend');
         $articles->image = $path;
-
         $this->articlesRepo->store($articles);
 
     }
@@ -41,12 +42,12 @@ class ArticleServices extends BaseServices
     {
         $articles = $this->articlesRepo->findById($id);
         if ($request->hasFile('image')) {
-            Storage::disk('public')->delete($articles->image_articles);
+            Storage::disk('public')->delete($articles->image);
             $path = $this->updateLoadFile($request, 'image', 'backend');
             $articles->image = $path;
         }
-        $articles->fill($request->all());
 
+        $articles->fill($request->all());
         $this->articlesRepo->store($articles);
     }
 

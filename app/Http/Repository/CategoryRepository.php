@@ -8,18 +8,27 @@ use App\Category;
 
 class CategoryRepository
 {
-    function getAll()
+    protected $category;
+
+    public function __construct(Category $category)
     {
-//        return Category::paginate(3);
-        return Category::all();
+        $this->category = $category;
     }
 
-    function findById($id){
+    function getAll()
+    {
+     return  $this->category->all();
+    }
+
+    function findById($id)
+    {
         return Category::findOrFail($id);
     }
-    function store($categories){
-            $categories->save();
-        }
+
+    function store($categories)
+    {
+        $categories->save();
+    }
 
 
 }

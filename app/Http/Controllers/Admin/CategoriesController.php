@@ -32,7 +32,7 @@ class CategoriesController extends Controller
     function store(Request $request)
     {
         $this->categoryServices->store($request);
-        return redirect()->route('store.categories');
+        return redirect()->route('categories')->with('message','Them moi thanh cong');
     }
 
     function edit($id)
@@ -46,21 +46,21 @@ class CategoriesController extends Controller
 
         $this->categoryServices->update($request, $id);
 
-        return redirect()->route('categories');
+        return redirect()->route('categories')->with('message','Cap nhat thanh cong');
     }
 
     function delete($id)
     {
         $categories = $this->categoryServices->getById($id);
         $categories->delete();
-        return back();
+        return redirect()->route('categories')->with('error','Xoa thanh cong');
     }
 
     function category_articles($id)
     {
         $category = Category::all();
         $articles = Article::where('category_id', $id)->get();
-        return view('user.articles.list_post', [
+        return view('Font-end.Article.list_article', [
             'articles' => $articles, 'category' => $category
         ]);
     }
